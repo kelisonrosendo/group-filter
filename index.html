@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="group-filter">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Group Filter</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body ng-controller="filterController">
+
+    <div class="container">
+
+        <div class="row mt-2">
+            <div class="col-lg-12">
+                <h1>Utilizando filtros de pesquisa</h1>
+                <hr>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-4 mb-3">
+                <select 
+                    class="form-control" 
+                    ng-model="selectedFilter" 
+                    ng-options="filter.id as filter.name for filter in filters"
+                    ng-change="changeOption()"
+                >
+                    <option value="">Selecione um filtro</option>
+                </select>
+            </div>
+
+            <div class="col-lg-4 mb-3">
+                <select class="form-control" ng-if="selectedFilter">
+                    <option value="">Selecione um filtro</option>
+                </select>
+            </div>
+
+            <div class="col-lg-4 mb-3">
+                <button class="btn btn-dark form-control">Filtrar</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Categoria</th>
+                            <th>Marca</th>
+                            <th>Modelo</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr ng-repeat="car in listCars">
+                            <td>{{ car.category }}</td>
+                            <td>{{ car.brand }}</td>
+                            <td>{{ car.model }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="app.js"></script>
+    <script src="filterController.js"></script>
+
+</body>
+</html>
