@@ -1,5 +1,5 @@
 # group-filter
-Adicionando e removendo filtros de pesquisa em tela utilizando **AngularJs.**
+Adicionando e removendo filtros de pesquisa em tela, utilizando **AngularJs.**
 
 **Ferramentas utilizadas:**
 - AngularJs versão 1.7.9
